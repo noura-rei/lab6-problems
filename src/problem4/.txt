@@ -1,0 +1,12 @@
+Why one perform better than the other?
+
+1- Random insert/delete:ArrayList performs better than the linkedList .Actually ,they are both O(n).
+ArrayList jumps to ith element ,then shift what is next ,but LinkedList walks in O(n) towards target
+and do operation in O(1).Even if the arrayShift is O(n) ,but it still faster than the walk
+
+2- Sequential insert/delete:linkedList performs better than arrayList ,because elements are pairwise adjacent,and addition at
+the beginning operates on O(1) ,because we add only one node and we link it
+But in arrayList ,we need to shift all the elements to right then add the new element,so O(n)
+
+3- Random access: ArrayList wins ,because it is indexed ,we can access an element in O(1),but LinkedList needs to traverse the
+whole list to find the return the element

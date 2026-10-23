@@ -2,30 +2,38 @@ package problem1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Shop
-{
-    public static void main (String[] args)
-    {
-        ArrayList<Item> cart = new ArrayList();
+public class Shop {
+    public static void main (String[] args) {
+        ArrayList<Item> cart = new ArrayList<>();
         Item item;
         String itemName;
         double itemPrice;
         int quantity;
+
         Scanner scan = new Scanner(System.in);
         String keepShopping = "y";
-        do
-        {
+        do {
             System.out.print ("Enter the name of the item: ");
             itemName = scan.nextLine();
+
             System.out.print ("Enter the unit price: ");
             itemPrice = scan.nextDouble();
+
             System.out.print ("Enter the quantity: ");
             quantity = scan.nextInt();
-// *** create a new item and add it to the cart
-            // *** print the contents of the cart object using println
+            scan.nextLine();
+
+            item  = new Item(itemName,itemPrice,quantity);
+            cart.add(item);
+            //System.out.println(cart.toString());
+            double total = 0;
+            for(Item i : cart){
+                System.out.println(i);
+                total += i.getPrice()*i.getQuantity();
+            }
+            System.out.println("Total Price is : "+total+" DH ");
             System.out.print ("Continue shopping (y/n)? ");
             keepShopping = scan.nextLine();
-        }
-        while (keepShopping.equals("y"));
+        } while (keepShopping.equals("y"));
     }
 }
